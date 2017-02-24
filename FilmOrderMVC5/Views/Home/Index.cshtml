@@ -1,0 +1,58 @@
+﻿@model FilmOrderMVC5.Models.FilmOrder
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>OrderForm</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-theme.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="panel-success">
+        <div class="panel-heading text-center">
+            <h4>Order form</h4>
+        </div>
+        <div class="panel-body">
+            @using (Html.BeginForm())
+            {
+                @Html.ValidationSummary()
+
+                <div class="form-group">
+                    <label>Your Name:</label>
+                    @Html.TextBoxFor(x => x.RersonName, new { @class = "form-control" })
+                </div>
+                <table class="table table-hover">
+                    @foreach (var b in ViewBag.Films)
+                    {
+                        <tr>
+                            <td >@b.Name</td>
+                            <td class="text-right">@b.Price</td>
+                        </tr>
+                    }
+                </table>
+                
+                @*<div class="form-group">
+                    <label>Film</label>
+                    @Html.DropDownListFor(x => x.OrderFilm, ViewBag.Films as SelectList,
+                   new { @class = "form-control" })
+                </div>*@
+
+                <div class="form-group">
+                    <label>Amount Of Days:</label>
+                    @Html.TextBoxFor(x => x.AmountOfDays, new { @class = "form-control" })
+                </div>
+
+                <div class="text-center">
+                    <input type="submit" value="Count Price" class="btn btn-success" />
+                </div>
+            }
+        </div>
+    </div>
+</body>
+</html>
