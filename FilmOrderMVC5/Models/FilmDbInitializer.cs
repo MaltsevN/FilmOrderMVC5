@@ -10,10 +10,10 @@ namespace FilmOrderMVC5.Models
     {
         protected override void Seed(FilmContext db)
         {
-            db.Films.Add(new Film() { Name = "Toy Story", Price = 100 });
-            db.Films.Add(new Film() { Name = "Nemo", Price = 200 });
-            db.Films.Add(new Film() { Name = "Alladin", Price = 300 });
-            db.Films.Add(new Film() { Name = "Cinderella", Price = 400 });
+            db.Films.Add(new Film() { Id = 0, Name = "Toy Story", Price = 100 });
+            db.Films.Add(new Film() { Id = 1, Name = "Nemo", Price = 200 });
+            db.Films.Add(new Film() { Id = 2, Name = "Alladin", Price = 300 });
+            db.Films.Add(new Film() { Id = 3, Name = "Cinderella", Price = 400 });
 
             base.Seed(db);
         }

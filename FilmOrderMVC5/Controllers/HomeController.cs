@@ -14,26 +14,21 @@ namespace FilmOrderMVC5.Controllers
         [HttpGet]
         public ViewResult Index()
         {
-            IEnumerable<Film> films = db.Films;
-
-            //List<Film> films = new List<Film>();
-
-            //films.Add(new Film("Toy Story", 200));
-            //films.Add(new Film("Nemo", 250));
-            //films.Add(new Film("Alladin", 300));
-            //films.Add(new Film("Cinderella", 350));
-
-            //SelectList filmsSelList = new SelectList(films, "Price", "Name");
-            ViewBag.Films = films;
+            SelectList selectedFilms = new SelectList(db.Films, "Id", "Name");
+            ViewBag.Films = selectedFilms;
             return View();
         }
 
         [HttpPost]
         public ViewResult Index(FilmOrder order)
         {
+
+
             if (ModelState.IsValid)
             {
-                return View(order);
+                order.FilmProperty = db.Films.Find(order.FilmId);
+                order.Price = order.AmountOfDays * order.FilmProperty.Price;
+                return View("Thanks", order);
             }
             else
             {

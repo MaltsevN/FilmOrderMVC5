@@ -11,12 +11,16 @@ namespace FilmOrderMVC5.Models
         public int Id { get; set; }
 
         [Required(ErrorMessage = "Please, enter your name")]
-        public string RersonName { get; set; }
+        public string PersonName { get; set; }
 
         [Required(ErrorMessage = "Please, choose film")]
-        public Film OrderFilm { get; set; }
+        public int FilmId { get; set; }
 
+        public Film FilmProperty { get; set; }
+        
         [Required(ErrorMessage = "Please, enter amount of days")]
         public int AmountOfDays { get; set; }
+
+        public double Price { get; set; }
     }
 }

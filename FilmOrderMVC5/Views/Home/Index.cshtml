@@ -25,23 +25,13 @@
 
                 <div class="form-group">
                     <label>Your Name:</label>
-                    @Html.TextBoxFor(x => x.RersonName, new { @class = "form-control" })
+                    @Html.TextBoxFor(x => x.PersonName, new { @class = "form-control" })
                 </div>
-                <table class="table table-hover">
-                    @foreach (var b in ViewBag.Films)
-                    {
-                        <tr>
-                            <td >@b.Name</td>
-                            <td class="text-right">@b.Price</td>
-                        </tr>
-                    }
-                </table>
-                
-                @*<div class="form-group">
+                <div class="form-group">
                     <label>Film</label>
-                    @Html.DropDownListFor(x => x.OrderFilm, ViewBag.Films as SelectList,
+                    @Html.DropDownListFor(x => x.FilmId, ViewBag.Films as SelectList,
                    new { @class = "form-control" })
-                </div>*@
+                </div>
 
                 <div class="form-group">
                     <label>Amount Of Days:</label>
@@ -51,6 +41,9 @@
                 <div class="text-center">
                     <input type="submit" value="Count Price" class="btn btn-success" />
                 </div>
+                
+
+
             }
         </div>
     </div>
