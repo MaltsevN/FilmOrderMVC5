@@ -5,7 +5,6 @@
 }
 
 <!DOCTYPE html>
-
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
@@ -14,23 +13,25 @@
     <link href="~/Content/bootstrap-theme.css" rel="stylesheet" />
 </head>
 <body>
-    <div class="panel-success">
-        <div class="panel-heading text-center">
-            <h4>Order form</h4>
+    <div class="panel-body center-block" style="width: 500px;">
+        <div class="text-center" style="color:#479e47;">
+            <h4>Order Form</h4>
         </div>
-        <div class="panel-body">
+        <div >
             @using (Html.BeginForm())
             {
                 @Html.ValidationSummary()
 
                 <div class="form-group">
-                    <label>Your Name:</label>
+                    <label >Your Name:</label>
                     @Html.TextBoxFor(x => x.PersonName, new { @class = "form-control" })
                 </div>
                 <div class="form-group">
                     <label>Film</label>
-                    @Html.DropDownListFor(x => x.FilmId, ViewBag.Films as SelectList,
-                   new { @class = "form-control" })
+                    <div class="dropdown-menu-left">
+                        @Html.DropDownListFor(x => x.FilmId, ViewBag.Films as SelectList,
+                new { @class = "form-control " })
+                    </div>
                 </div>
 
                 <div class="form-group">
@@ -41,11 +42,13 @@
                 <div class="text-center">
                     <input type="submit" value="Count Price" class="btn btn-success" />
                 </div>
-                
+
 
 
             }
         </div>
+
     </div>
+    
 </body>
 </html>
